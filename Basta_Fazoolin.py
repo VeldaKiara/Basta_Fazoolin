@@ -1,3 +1,7 @@
+class Business:
+    def __init__(self, name, franchises):
+        self.name = name
+        self.franchises = franchises
 class Franchise:
     def __init__(self, address, menus):
         self.address = address
@@ -10,9 +14,6 @@ class Franchise:
             if time >= menu.start_time and time <= menu.end_time:
                 available_menus.append(menu)
         return available_menus
-
-
-
 class Menu:
     def __init__(self, name, items, start_time, end_time):
         self.name = name
@@ -67,4 +68,18 @@ flagship_store = Franchise('1232 West End Road', menus)
 new_installment = Franchise('12 East Mulberry Street', menus)
 
 print(flagship_store.available_menus(1700))
+basta = Business("Basta Fazoolin' with my Heart", [flagship_store, new_installment])
+
+#Arepas
+
+arepas_items = {
+  'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50
+}
+arepas_menu = Menu("Take a' Arepa", arepas_items, 1000, 2000 )
+
+arepas_place = Franchise("189 Fitzgerald Avenue", [arepas_menu])
+
+arepa = Business("Take a' Arepa",[arepas_place])
+
+print(arepa.franchises[0].menus[0])
     
